@@ -1,0 +1,5 @@
+# Guía del proyecto
+
+Venta Fácil Precios es una calculadora de precios para Android y web, en español, con pesos chilenos, IVA configurable y diseño oscuro de alto contraste. El alcance vigente es IVA, descuentos, margen, cantidad y comparación de precios. No volver a introducir módulos de venta, productos, cotizaciones, clientes o seguimiento salvo solicitud explícita.
+
+Trabajar dentro de `C:\proyectos\venta_facil`. React 19, TypeScript estricto, Vite, React Router, Dexie, Capacitor y PWA. `src/utils/money.ts` contiene cálculos puros; montos CLP enteros y porcentajes en puntos base. En la calculadora de margen, el porcentaje se **suma al costo ingresado**: $1.000 netos con 50% producen $1.500 netos y $1.785 con IVA; $1.190 con IVA y 50% producen $1.785 con IVA. Probar cambios de cálculo con `npm test` y cambios de aplicación con `npm run typecheck` y `npm run build`. Tras cambios web destinados al APK, ejecutar `npx cap sync android` y recompilar. El esquema Dexie histórico se conserva para no borrar datos existentes.
