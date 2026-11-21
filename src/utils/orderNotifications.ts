@@ -68,7 +68,7 @@ async function performSync(): Promise<{ enabled: boolean; exact: boolean; schedu
   const wanted = new Map<number, { order: NextOrder; at: Date }>()
   for (const order of orders) for (const reminder of reminderSchedule(order, now)) wanted.set(reminder.id, { order, at: reminder.at })
   const pending = (await LocalNotifications.getPending()).notifications
-  const stale = pending.filter(item => item.id >= 100_000 && item.id < 2_147_483_647 && !wanted.has(item.id))
+  const stale = pending.filter(item => item.id >= 100_000 && item.id < 1_500_000_000 && !wanted.has(item.id))
   if (stale.length) await LocalNotifications.cancel({ notifications: stale.map(item => ({ id: item.id })) })
   const pendingIds = new Set(pending.map(item => item.id))
   const missing = [...wanted].filter(([id]) => !pendingIds.has(id)).map(([id, { order, at }]) => ({ ...notification(order, id, at), isExactNotification: exact }))
@@ -86,7 +86,7 @@ export async function syncOrderNotifications(): Promise<{ enabled: boolean; exac
 export async function rebuildOrderNotifications(): Promise<{ enabled: boolean; exact: boolean; scheduled: number }> {
   if (!native()) return { enabled: false, exact: false, scheduled: 0 }
   return inOrder(async () => {
-    const pending = (await LocalNotifications.getPending()).notifications.filter(item => item.id >= 100_000 && item.id < 2_147_483_647)
+    const pending = (await LocalNotifications.getPending()).notifications.filter(item => item.id >= 100_000 && item.id < 1_500_000_000)
     if (pending.length) await LocalNotifications.cancel({ notifications: pending.map(item => ({ id: item.id })) })
     return performSync()
   })

@@ -1,6 +1,6 @@
-# Calculadora Comercial
+# Asistente Comercial
 
-Aplicación de precios para Android y web, en español y pesos chilenos. Incluye calculadoras de IVA, descuentos, margen sobre el costo, cantidades, precio objetivo y comparativos; calculadora simple, catálogo de productos, notas, agenda y recordatorios de próximos pedidos.
+Asistente para Android y web, en español y pesos chilenos. Incluye calculadoras de IVA, descuentos, margen sobre el costo, cantidades, precio objetivo y comparativos; calculadora simple, catálogo de productos, notas, agenda, recordatorios de próximos pedidos y avisos de facturas pendientes.
 
 Los importes se calculan en pesos enteros. El IVA inicial es 19 % y se puede cambiar en Ajustes. Los datos se guardan en el dispositivo con Dexie y se pueden exportar e importar mediante un respaldo local. La app funciona sin conexión después de instalarse.
 

@@ -1,5 +1,12 @@
 # Registro de cambios
 
+## 0.12.6 — Asistente Comercial y avisos de facturas
+- La app y el APK adoptan el nombre Asistente Comercial; se conserva el identificador Android para actualizar instalaciones sin perder datos.
+- Inicio reduce el cuadro principal y ofrece acceso directo a Aviso Facturas Pendientes.
+- Nuevo recordatorio local de facturas: mensaje editable de DIMER S.A., copia del texto, fecha puntual o al menos dos días semanales (Lun, Mar, Mie, Jue, Vie), estado de pago y control para detener avisos.
+- Los avisos de facturas se programan a las 08:30. Los de Próximos Pedidos ahora comienzan a las 08:30 y mantienen el último aviso a las 16:15.
+- El respaldo local incorpora los avisos de facturas y conserva compatibilidad con respaldos anteriores.
+
 ## 0.10.21 — Cartera en el respaldo local
 - Ajustes muestra el número de clientes de Cartera que se incluirán en el respaldo.
 - Al exportar e importar, la app confirma cuántos clientes contiene el archivo y cuántos se agregaron al dispositivo.

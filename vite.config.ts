@@ -12,9 +12,9 @@ export default defineConfig({
       manifestFilename: 'manifest.json',
       includeAssets: ['favicon.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png'],
       manifest: {
-        name: 'Venta Fácil Precios',
-        short_name: 'Venta Fácil',
-        description: 'IVA, descuentos, márgenes y comparativos sin conexión.',
+        name: 'Asistente Comercial',
+        short_name: 'Asistente',
+        description: 'Precios, cálculos, pedidos y avisos comerciales sin conexión.',
         lang: 'es-CL',
         start_url: '/',
         scope: '/',

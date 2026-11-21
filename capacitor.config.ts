@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli'
 
 const config: CapacitorConfig = {
   appId: 'cl.ventafacil.calculadora',
-  appName: 'Venta Fácil Precios',
+  appName: 'Asistente Comercial',
   webDir: 'dist',
   android: { backgroundColor: '#0b1424' },
   plugins: {

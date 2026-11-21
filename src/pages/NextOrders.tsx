@@ -119,7 +119,7 @@ export function NextOrdersPage() {
   }
 
   return <div className="page next-orders-page"><PageTitle eyebrow="PRÓXIMOS PEDIDOS" title="Organiza tus pedidos" />
-    <div className="order-reminder-note"><Bell size={18} aria-hidden="true" /><span>Avisos a las <strong>09:00, 11:00, 13:00, 15:00 y 16:15</strong> del día elegido, hasta que los detengas.</span></div>
+    <div className="order-reminder-note"><Bell size={18} aria-hidden="true" /><span>Avisos a las <strong>08:30, 11:00, 13:00, 15:00 y 16:15</strong> del día elegido, hasta que los detengas.</span></div>
     {notificationState === 'browser' && <p className="order-notification-status">En la web verás los pendientes al abrir esta pantalla. Instala la APK para recibir avisos del teléfono con la app cerrada.</p>}
     {notificationState === 'denied' && <div className="order-notification-status"><span>Los avisos del teléfono están desactivados.</span><button type="button" className="secondary-button" onClick={() => void refreshNotifications()}>Activar notificaciones</button></div>}
     {notificationState === 'approximate' && <div className="order-notification-status"><span>Los avisos pueden llegar con retraso por la configuración del teléfono.</span><button type="button" className="secondary-button" onClick={() => void enableExactAlarms()}>Activar avisos puntuales</button></div>}

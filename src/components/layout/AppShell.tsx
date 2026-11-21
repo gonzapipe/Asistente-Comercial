@@ -42,7 +42,7 @@ export function AppShell() {
       <div className="main-column">
         <header className="topbar">
           <div className="mobile-brand"><Brand /></div>
-          <div className="topbar-title"><span className="eyebrow">CALCULADORA COMERCIAL</span><strong>{current?.label ?? 'Inicio'}</strong></div>
+          <div className="topbar-title"><span className="eyebrow">ASISTENTE COMERCIAL</span><strong>{current?.label ?? 'Inicio'}</strong></div>
           <button ref={menuButton} className="menu-button" type="button" aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'} aria-controls="mobile-nav" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
           <span className="phase-pill">Modo local</span>
         </header>
@@ -57,5 +57,5 @@ export function AppShell() {
 }
 
 function Brand() {
-  return <NavLink to="/" className="brand" aria-label="CALCULADORA COMERCIAL, ir a inicio"><span className="brand-mark">GP</span><span className="brand-copy"><strong>CALCULADORA COMERCIAL</strong><small>Precios, cálculos, márgenes y más...</small></span></NavLink>
+  return <NavLink to="/" className="brand" aria-label="ASISTENTE COMERCIAL, ir a inicio"><span className="brand-mark">GP</span><span className="brand-copy"><strong>ASISTENTE COMERCIAL</strong><small>Precios, cálculos, márgenes y más...</small></span></NavLink>
 }

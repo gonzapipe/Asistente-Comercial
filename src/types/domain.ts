@@ -8,6 +8,7 @@ export interface PriceCatalogProduct { id: Id; name: string; priceGross: number;
 export interface PriceCatalogCategory { id: Id; name: string; createdAt: ISODate }
 export interface NextOrderItem { id: Id; name: string; quantity: string }
 export interface NextOrder { id: Id; customerName: string; productName: string; quantity: string; items?: NextOrderItem[]; entryDate: string; deliveryDate?: string; notificationBase: number; alertsStopped: boolean; status: 'pending' | 'entered'; createdAt: ISODate; updatedAt: ISODate; enteredAt?: ISODate }
+export interface InvoiceReminder { id: Id; clientName: string; invoiceNumbers: string; message: string; mode: 'once' | 'weekly'; alertDate: string; weekdays: number[]; notificationBase: number; alertsStopped: boolean; status: 'pending' | 'paid'; lastContactDate?: string; createdAt: ISODate; updatedAt: ISODate }
 export interface OrderLine { id: Id; productId?: Id; name: string; quantity: number; unitPriceGross: number }
 export interface SalesOrder { id: Id; clientId: Id; orderDate: string; createdAt: ISODate; updatedAt: ISODate; status: 'active' | 'replaced'; replacesOrderId?: Id; items: OrderLine[]; totalGross: number; demo?: boolean }
 export interface ClientDocument { id: Id; clientId: Id; orderId?: Id; kind: 'factura' | 'boleta'; number: string; amountGross: number; dueDate?: string; paymentStatus: 'pending' | 'paid'; routeDate?: string; driverName?: string; createdAt: ISODate; updatedAt: ISODate; demo?: boolean }

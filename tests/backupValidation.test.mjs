@@ -33,3 +33,14 @@ test('respaldo v6 incluye recordatorios y rechaza identificadores de aviso repet
   data.nextOrders=[order,{...order,id:'pedido-2'}]
   assert.throws(()=>validateBackup(data))
 })
+test('respaldo v7 incluye avisos de facturas y conserva versiones anteriores',()=>{
+  const data=backup();data.version=7;data.priceCatalog=[];data.priceCatalogCategories=[];data.nextOrders=[];data.invoiceReminders=[]
+  assert.equal(validateBackup(data).version,7)
+  const reminder={id:'a',clientName:'Cliente',invoiceNumbers:'F-1',message:'Recordar pago',mode:'weekly',alertDate:'',weekdays:[1,4],notificationBase:1_500_000_000,alertsStopped:false,status:'pending',createdAt:'2026-11-21T10:00:00Z',updatedAt:'2026-11-21T10:00:00Z'}
+  data.invoiceReminders=[reminder]
+  assert.equal(validateBackup(data).invoiceReminders.length,1)
+  data.invoiceReminders=[reminder,{...reminder,id:'b'}]
+  assert.throws(()=>validateBackup(data))
+  data.invoiceReminders=[{...reminder,weekdays:[1]}]
+  assert.throws(()=>validateBackup(data))
+})

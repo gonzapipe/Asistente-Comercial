@@ -13,7 +13,7 @@ export const emptyNextOrderDraft = (): NextOrderDraft => {
   const day = localDateString(date)
   return { editingId: null, customerName: '', items: [emptyNextOrderItem()], entryDate: day }
 }
-export const reminderTimes = [{ hour: 9, minute: 0 }, { hour: 11, minute: 0 }, { hour: 13, minute: 0 }, { hour: 15, minute: 0 }, { hour: 16, minute: 15 }] as const
+export const reminderTimes = [{ hour: 8, minute: 30 }, { hour: 11, minute: 0 }, { hour: 13, minute: 0 }, { hour: 15, minute: 0 }, { hour: 16, minute: 15 }] as const
 export const orderCutoff = { hour: 16, minute: 30 } as const
 
 export function localDateString(date: Date): string {
@@ -38,7 +38,7 @@ export function reminderSchedule(order: Pick<NextOrder, 'entryDate' | 'notificat
 
 export function nextNotificationBase(orders: NextOrder[]): number {
   const base = Math.max(99_990, ...orders.map(order => order.notificationBase)) + 10
-  if (base > 2_147_483_640) throw new Error('Se alcanzó el límite de recordatorios del dispositivo.')
+  if (base > 1_499_999_990) throw new Error('Se alcanzó el límite de recordatorios del dispositivo.')
   return base
 }
 

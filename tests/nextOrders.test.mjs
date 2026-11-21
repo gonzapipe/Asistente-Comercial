@@ -4,9 +4,9 @@ import { dateAt, emptyNextOrderDraft, isOrderDueToday, loadNextOrderDraft, nextN
 
 const order = { id: 'a', customerName: 'Cliente', productName: 'Producto', quantity: '12', entryDate: '2026-11-16', deliveryDate: '2026-11-18', notificationBase: 100000, alertsStopped: false, status: 'pending', createdAt: '2026-11-13T10:00:00.000Z', updatedAt: '2026-11-13T10:00:00.000Z' }
 
-test('los avisos comienzan a las 09:00 y terminan antes de las 16:30', () => {
-  const all = reminderSchedule(order, new Date(2026, 10, 16, 8, 59))
-  assert.deepEqual(all.map(item => item.label), ['09:00', '11:00', '13:00', '15:00', '16:15'])
+test('los avisos comienzan a las 08:30 y terminan antes de las 16:30', () => {
+  const all = reminderSchedule(order, new Date(2026, 10, 16, 8, 29))
+  assert.deepEqual(all.map(item => item.label), ['08:30', '11:00', '13:00', '15:00', '16:15'])
   assert.deepEqual(all.map(item => item.id), [100000, 100001, 100002, 100003, 100004])
   assert.deepEqual(reminderSchedule(order, new Date(2026, 10, 16, 11, 30)).map(item => item.label), ['13:00', '15:00', '16:15'])
   assert.equal(reminderSchedule(order, new Date(2026, 10, 16, 16, 16)).length, 0)

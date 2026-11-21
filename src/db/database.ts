@@ -1,5 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie'
-import type { ActivityLog, AgendaEntry, CalculationHistoryEntry, CatalogItem, Category, ClientDocument, Customer, FollowUp, NextOrder, NoteEntry, PortfolioClient, PriceCatalogCategory, PriceCatalogProduct, PriceList, Product, Quote, QuoteItem, RoutePlan, SalesOrder, Settings, VisitRecord } from '../types/domain'
+import type { ActivityLog, AgendaEntry, CalculationHistoryEntry, CatalogItem, Category, ClientDocument, Customer, FollowUp, InvoiceReminder, NextOrder, NoteEntry, PortfolioClient, PriceCatalogCategory, PriceCatalogProduct, PriceList, Product, Quote, QuoteItem, RoutePlan, SalesOrder, Settings, VisitRecord } from '../types/domain'
 import initialProducts from '../data/initialProducts.json'
 import { categoryForName, catalogKey, defaultCatalogCategories } from '../utils/priceCatalog'
 
@@ -25,6 +25,7 @@ export class VentaFacilDatabase extends Dexie {
   priceCatalog!: EntityTable<PriceCatalogProduct, 'id'>
   priceCatalogCategories!: EntityTable<PriceCatalogCategory, 'id'>
   nextOrders!: EntityTable<NextOrder, 'id'>
+  invoiceReminders!: EntityTable<InvoiceReminder, 'id'>
 
   constructor() {
     super('VentaFacil')
@@ -46,6 +47,7 @@ export class VentaFacilDatabase extends Dexie {
     this.version(6).stores({ catalogItems: 'id, name, updatedAt', salesOrders: 'id, clientId, orderDate, status', clientDocuments: 'id, clientId, orderId, dueDate, routeDate', visitRecords: 'id, clientId, date' })
     this.version(7).stores({ priceCatalog: 'id, name, categoryId, updatedAt', priceCatalogCategories: 'id, &name' })
     this.version(8).stores({ nextOrders: 'id, entryDate, deliveryDate, status, updatedAt' })
+    this.version(9).stores({ invoiceReminders: 'id, clientName, alertDate, status, updatedAt' })
   }
 }
 
